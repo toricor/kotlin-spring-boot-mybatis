@@ -17,8 +17,8 @@ class UserService {
             UserRepository.findOne(id)
 
 
-    fun findByFirstName(firstName: String): List<User> =
-            UserRepository.findByFirstName(firstName)
+    fun findByName(name: String): List<User> =
+            UserRepository.findByName(name)
 
 
     fun create(user: User): User {

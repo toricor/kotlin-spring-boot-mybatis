@@ -21,8 +21,8 @@ class UserController {
             userService.findOne(id)
 
     @GetMapping("/search")
-    fun getUsersByFirstName(@RequestParam firstName: String): List<User> =
-            userService.findByFirstName(firstName)
+    fun getUsersByName(@RequestParam name: String): List<User> =
+            userService.findByName(name)
 
     // インサートはOKしかし500 Error
     @PostMapping
