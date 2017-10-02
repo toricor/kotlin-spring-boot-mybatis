@@ -1,5 +1,7 @@
 package com.toricor.training.event
 
+import com.toricor.training.event.dao.Event
+import com.toricor.training.event.dao.EventWithAuthorName
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -7,32 +9,28 @@ import org.springframework.stereotype.Service
 class EventService {
 
     @Autowired
-    lateinit var EventRepository: EventRepository
+    lateinit var eventRepository: EventRepository
 
-    fun findAll(): List<Event> =
-            EventRepository.findAll()
-
-
-    fun findOne(id: Int): Event =
-            EventRepository.findOne(id)
+    fun findAll(): List<Event> = eventRepository.findAll()
 
 
-    fun findByTitle(title: String): List<Event> =
-            EventRepository.findByTitle(title)
+    fun findOne(id: Int): Event = eventRepository.findOne(id)
+
+    fun findAllWithAuthorName(): List<EventWithAuthorName> = eventRepository.findAllWithAuthorName()
+
+    fun findByTitle(title: String): List<Event> = eventRepository.findByTitle(title)
 
 
     fun create(event: Event): Event {
-        EventRepository.insert(event)
+        eventRepository.insert(event)
         return event
     }
 
     fun update(event: Event): Event {
-        EventRepository.update(event)
+        eventRepository.update(event)
         return event
     }
 
-    fun delete(id: Int) {
-        EventRepository.delete(id)
-    }
+    fun delete(id: Int) = eventRepository.delete(id)
 
 }

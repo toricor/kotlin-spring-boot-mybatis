@@ -1,5 +1,7 @@
 package com.toricor.training.event
 
+import com.toricor.training.event.dao.Event
+import com.toricor.training.event.dao.EventWithAuthorName
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -18,6 +20,10 @@ class EventController {
     @GetMapping("{id}")
     fun getEvent(@PathVariable id: Int): Event =
             eventService.findOne(id)
+
+    @GetMapping("/with_author_name")
+    fun getEventsWithAuthorName(): List<EventWithAuthorName> =
+            eventService.findAllWithAuthorName()
 
     @GetMapping("/search")
     fun getEventsByTitle(@RequestParam title: String): List<Event> =
