@@ -46,4 +46,9 @@ class EventController {
     fun deleteEvent(@PathVariable id: Int) {
         eventService.delete(id)
     }
+
+    @GetMapping("/remaining/{id}")
+    fun getRemaining(@PathVariable id: Int): Int =
+        eventService.getRemaining(id)
+
 }

@@ -33,4 +33,6 @@ class EventService {
 
     fun delete(id: Int) = eventRepository.delete(id)
 
+    fun getRemaining(id: Int) = eventRepository.getRemaining(id)
+
 }
