@@ -49,6 +49,5 @@ class EventController {
 
     @GetMapping("/remaining/{id}")
     fun getRemaining(@PathVariable id: Int): Int =
-        eventService.getRemaining(id)
-
+        eventService.findOne(id).remaining
 }

@@ -49,6 +49,4 @@ interface EventRepository {
     @Delete("DELETE FROM event")
     fun deleteAll()
 
-    @Select("SELECT remaining FROM event")
-    fun getRemaining(@Param("id") id: Int): Int
 }
