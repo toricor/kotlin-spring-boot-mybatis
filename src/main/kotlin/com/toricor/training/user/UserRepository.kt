@@ -1,5 +1,6 @@
 package com.toricor.training.user
 
+import com.toricor.training.user.dao.User
 import org.apache.ibatis.annotations.*
 
 @Mapper

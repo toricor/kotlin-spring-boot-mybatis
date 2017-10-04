@@ -7,12 +7,12 @@ data class EventWithAuthorName (
         val id: Int,
         var title: String,
         var description: String,
-        val datetime: Timestamp,
-        var publish: Timestamp,
         var author: String,
         var place: String,
         var participants: String,
-        var max_participants: String
+        var max_participants: String,
+        val created_at: Timestamp,
+        var published_at: Timestamp
 ) {
     val remaining = max_participants.toInt() - participants.toInt()
 }

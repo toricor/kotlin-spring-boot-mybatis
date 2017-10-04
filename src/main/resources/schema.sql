@@ -7,12 +7,12 @@ CREATE TABLE IF NOT EXISTS event (
     id               INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title            VARCHAR(255) NOT NULL,
     description      VARCHAR(255) NOT NULL,
-    datetime         DATETIME NOT NULL,
-    publish          DATETIME NOT NULL,
     author           INTEGER NOT NULL,
     place            VARCHAR(255) NOT NULL,
     participants     VARCHAR(255) NOT NULL,
     max_participants VARCHAR(255) NOT NULL,
+    published_at     DATETIME NOT NULL,
+    created_at       DATETIME NOT NULL,
     FOREIGN KEY(author) REFERENCES user(id)
 );
 

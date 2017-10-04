@@ -7,12 +7,12 @@ data class Event (
         val id: Int,
         var title: String,
         var description: String,
-        val datetime: Timestamp,
-        var publish: Timestamp,
         var author: Int,
         var place: String,
-        var participants: String,
-        var max_participants: String
+        var participants: Int,
+        var max_participants: Int,
+        val created_at: Timestamp,
+        var published_at: Timestamp
 ) {
-    val remaining = max_participants.toInt() - participants.toInt()
+    val remaining = max_participants - participants
 }
