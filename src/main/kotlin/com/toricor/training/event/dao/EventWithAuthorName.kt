@@ -9,10 +9,11 @@ data class EventWithAuthorName (
         var description: String,
         var author: String,
         var place: String,
-        var participants: String,
-        var max_participants: String,
-        val created_at: Timestamp,
-        var published_at: Timestamp
+        var participants: Int,
+        var maxParticipants: Int,
+        val createdAt: Timestamp,
+        var publishedAt: Timestamp
+    // 先にDBを最新版に更新すること
 ) {
-    val remaining = max_participants.toInt() - participants.toInt()
+    val remaining = maxParticipants - participants
 }

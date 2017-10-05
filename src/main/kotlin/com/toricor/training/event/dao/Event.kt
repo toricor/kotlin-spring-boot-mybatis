@@ -10,9 +10,9 @@ data class Event (
         var author: Int,
         var place: String,
         var participants: Int,
-        var max_participants: Int,
-        val created_at: Timestamp,
-        var published_at: Timestamp
+        var maxParticipants: Int,
+        val createdAt: Timestamp,
+        var publishedAt: Timestamp
 ) {
-    val remaining = max_participants - participants
+    val remaining = maxParticipants - participants
 }
