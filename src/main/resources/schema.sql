@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS event (
     description      VARCHAR(255) NOT NULL,
     author           INTEGER NOT NULL,
     place            VARCHAR(255) NOT NULL,
-    participants     VARCHAR(255) NOT NULL,
-    max_participants VARCHAR(255) NOT NULL,
+    participants     INTEGER NOT NULL,
+    max_participants INTEGER NOT NULL,
     published_at     DATETIME NOT NULL,
     created_at       DATETIME NOT NULL,
     FOREIGN KEY(author) REFERENCES user(id)
