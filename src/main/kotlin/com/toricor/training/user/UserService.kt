@@ -8,32 +8,32 @@ import org.springframework.stereotype.Service
 class UserService {
 
     @Autowired
-    lateinit var UserRepository: UserRepository
+    lateinit var userRepository: UserRepository
 
     fun findAll(): List<User> =
-            UserRepository.findAll()
+            userRepository.findAll()
 
 
     fun findOne(id: Int): User =
-            UserRepository.findOne(id)
+            userRepository.findOne(id)
 
 
     fun findByName(name: String): List<User> =
-            UserRepository.findByName(name)
+            userRepository.findByName(name)
 
 
     fun create(user: User): User {
-        UserRepository.insert(user)
+        userRepository.insert(user)
         return user
     }
 
     fun update(user: User): User {
-        UserRepository.update(user)
+        userRepository.update(user)
         return user
     }
 
     fun delete(id: Int) {
-        UserRepository.delete(id)
+        userRepository.delete(id)
     }
 
 }
