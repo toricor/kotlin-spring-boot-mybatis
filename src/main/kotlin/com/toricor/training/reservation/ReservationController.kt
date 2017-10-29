@@ -15,17 +15,17 @@ class ReservationController {
 
     @GetMapping
     fun getReservations(): List<Reservation> {
-        reservationService.findAll()
+        return reservationService.findAll()
     }
 
     @GetMapping("/joined")
     fun getReservationWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName> {
-        reservationService.findAllWithUserNameAndEventName()
+        return reservationService.findAllWithUserNameAndEventName()
     }
 
     @GetMapping("{id}")
     fun getReservation(@PathVariable id: Int): Reservation {
-        reservationService.findOne(id)
+        return reservationService.findOne(id)
     }
 
     @PostMapping

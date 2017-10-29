@@ -14,15 +14,15 @@ class ReservationService {
     lateinit var reservationRepository: ReservationRepository
 
     fun findAll(): List<Reservation> {
-        reservationRepository.findAll()
+        return reservationRepository.findAll()
     }
 
     fun findOne(id: Int): Reservation {
-        reservationRepository.findOne(id)
+        return reservationRepository.findOne(id)
     }
 
     fun findAllWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName> {
-        reservationRepository.findAllWithUserNameAndEventName()
+        return reservationRepository.findAllWithUserNameAndEventName()
     }
     fun create(reservation: Reservation){
         reservationRepository.insert(reservation)

@@ -12,17 +12,11 @@ class UserService {
     @Autowired
     lateinit var userRepository: UserRepository
 
-    fun findAll(): List<User> {
-        userRepository.findAll()
-    }
+    fun findAll(): List<User> = userRepository.findAll()
 
-    fun findOne(id: Int): User {
-        userRepository.findOne(id)
-    }
+    fun findOne(id: Int): User = userRepository.findOne(id)
 
-    fun findByName(name: String): List<User> {
-        userRepository.findByName(name)
-    }
+    fun findByName(name: String): List<User> = userRepository.findByName(name)
 
     fun create(user: User){
         userRepository.insert(user)
