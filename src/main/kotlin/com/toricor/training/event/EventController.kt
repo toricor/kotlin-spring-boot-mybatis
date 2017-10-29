@@ -29,7 +29,6 @@ class EventController {
     fun getEventsByTitle(@RequestParam title: String): List<Event> =
             eventService.findByTitle(title)
 
-    // インサートはOKしかし500 Error
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun createEvent(@RequestBody event: Event): Event =

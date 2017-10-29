@@ -28,13 +28,12 @@ class UserController {
     // インサートはOKしかし500 Error
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createUser(@RequestBody user: User): User =
+    fun createUser(@RequestBody user: User) =
             userService.create(user)
 
     @PostMapping("{id}")
-    fun updateUser(@PathVariable id: Int, @RequestBody user: User): User {
-
-        return userService.update(user)
+    fun updateUser(@PathVariable id: Int, @RequestBody user: User) {
+        userService.update(user)
     }
 
     @DeleteMapping("{id}")

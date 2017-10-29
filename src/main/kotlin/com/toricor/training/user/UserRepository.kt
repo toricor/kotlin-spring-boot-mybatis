@@ -13,7 +13,8 @@ interface UserRepository {
     fun findOne(@Param("id") id: Int): User
 
     @Insert("INSERT INTO user(name) VALUES(#{name})")
-    @SelectKey(statement = arrayOf("call identity()"), keyProperty = "id", before = false, resultType = Int::class)
+    //@SelectKey(statement = arrayOf("call identity()"), keyProperty = "id", before = false, resultType = Int::class)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     fun insert(user: User)
 
     @Update("UPDATE user SET name = #{name} WHERE id = #{id}")

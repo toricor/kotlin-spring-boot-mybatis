@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("api/reservation")
+@RequestMapping("api/reservations")
 class ReservationController {
 
     @Autowired
@@ -19,11 +19,13 @@ class ReservationController {
     fun getReservations(): List<Reservation> =
             reservationService.findAll()
 
+    @GetMapping("/joined")
+    fun getReservationWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName> =
+            reservationService.findAllWithUserNameAndEventName()
+
     @GetMapping("{id}")
     fun getReservation(@PathVariable id: Int): Reservation =
             reservationService.findOne(id)
 
-    @GetMapping("/all_with_name")
-    fun getReservationWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName> =
-            reservationService.findAllWithUserNameAndEventName()
+
 }

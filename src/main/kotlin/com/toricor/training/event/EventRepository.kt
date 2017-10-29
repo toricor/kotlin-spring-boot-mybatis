@@ -26,7 +26,7 @@ interface EventRepository {
     fun findAllWithAuthorName(): List<EventWithAuthorName>
 
     @Insert("INSERT INTO event(title) VALUES(#{title})")
-    @SelectKey(statement = arrayOf("call identity()"), keyProperty = "id", before = false, resultType = Int::class)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     fun insert(event: Event)
 
     @Update("UPDATE event SET title = #{title} WHERE id = #{id}")

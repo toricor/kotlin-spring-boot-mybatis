@@ -22,14 +22,12 @@ class UserService {
             UserRepository.findByName(name)
 
 
-    fun create(user: User): User {
+    fun create(user: User){
         UserRepository.insert(user)
-        return user
     }
 
-    fun update(user: User): User {
+    fun update(user: User){
         UserRepository.update(user)
-        return user
     }
 
     fun delete(id: Int) {
