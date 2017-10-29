@@ -3,10 +3,8 @@ package com.toricor.training.reservation
 import com.toricor.training.reservation.dao.Reservation
 import com.toricor.training.reservation.dao.ReservationWithUserNameAndEventName
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("api/reservations")
@@ -27,5 +25,20 @@ class ReservationController {
     fun getReservation(@PathVariable id: Int): Reservation =
             reservationService.findOne(id)
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createUser(@RequestBody reservation: Reservation) =
+            reservationService.create(reservation)
+
+    @PostMapping("{id}")
+    fun updateUser(@PathVariable id: Int, @RequestBody reservation: Reservation) {
+        reservationService.update(reservation)
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun deleteUser(@PathVariable id: Int) {
+        reservationService.delete(id)
+    }
 
 }

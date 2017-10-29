@@ -21,7 +21,7 @@ class EventController {
     fun getEvent(@PathVariable id: Int): Event =
             eventService.findOne(id)
 
-    @GetMapping("/with_author_name")
+    @GetMapping("/joined")
     fun getEventsWithAuthorName(): List<EventWithAuthorName> =
             eventService.findAllWithAuthorName()
 
@@ -36,7 +36,6 @@ class EventController {
 
     @PostMapping("{id}")
     fun updateEvent(@PathVariable id: Int, @RequestBody event: Event): Event {
-
         return eventService.update(event)
     }
 

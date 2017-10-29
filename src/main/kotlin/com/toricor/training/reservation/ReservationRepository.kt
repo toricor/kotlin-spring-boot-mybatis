@@ -2,9 +2,8 @@ package com.toricor.training.reservation
 
 import com.toricor.training.reservation.dao.Reservation
 import com.toricor.training.reservation.dao.ReservationWithUserNameAndEventName
-import org.apache.ibatis.annotations.Mapper
-import org.apache.ibatis.annotations.Param
-import org.apache.ibatis.annotations.Select
+import com.toricor.training.user.dao.User
+import org.apache.ibatis.annotations.*
 
 @Mapper
 interface ReservationRepository {
@@ -30,4 +29,17 @@ interface ReservationRepository {
             event.id = reservation.event_id
     """)
     fun findAllWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName>
+
+    @Insert("INSERT INTO reservation(user_id, event_id) VALUES(#{user_id}, #{event_id})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    fun insert(reservation: Reservation)
+
+    @Update("UPDATE reservation SET user_id = #{user_id}, event_id = #{event_id} WHERE id = #{id}")
+    fun update(reservation: Reservation)
+
+    @Delete("DELETE FROM reservation WHERE id = #{id}")
+    fun delete(@Param("id") id: Int)
+
+    @Delete("DELETE FROM user")
+    fun deleteAll()
 }
