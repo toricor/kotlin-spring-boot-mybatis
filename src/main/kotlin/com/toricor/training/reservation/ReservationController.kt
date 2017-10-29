@@ -14,21 +14,25 @@ class ReservationController {
     lateinit var reservationService: ReservationService
 
     @GetMapping
-    fun getReservations(): List<Reservation> =
-            reservationService.findAll()
+    fun getReservations(): List<Reservation> {
+        reservationService.findAll()
+    }
 
     @GetMapping("/joined")
-    fun getReservationWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName> =
-            reservationService.findAllWithUserNameAndEventName()
+    fun getReservationWithUserNameAndEventName(): List<ReservationWithUserNameAndEventName> {
+        reservationService.findAllWithUserNameAndEventName()
+    }
 
     @GetMapping("{id}")
-    fun getReservation(@PathVariable id: Int): Reservation =
-            reservationService.findOne(id)
+    fun getReservation(@PathVariable id: Int): Reservation {
+        reservationService.findOne(id)
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createUser(@RequestBody reservation: Reservation) =
-            reservationService.create(reservation)
+    fun createUser(@RequestBody reservation: Reservation) {
+        reservationService.create(reservation)
+    }
 
     @PostMapping("{id}")
     fun updateUser(@PathVariable id: Int, @RequestBody reservation: Reservation) {
