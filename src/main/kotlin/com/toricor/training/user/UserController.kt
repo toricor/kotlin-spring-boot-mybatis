@@ -25,7 +25,6 @@ class UserController {
     fun getUsersByName(@RequestParam name: String): List<User> =
             userService.findByName(name)
 
-    // インサートはOKしかし500 Error
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun createUser(@RequestBody user: User) =
