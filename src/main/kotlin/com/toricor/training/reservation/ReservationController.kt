@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("api/reservations")
 class ReservationController {
-
+    // hogehogehoge
     @Autowired
     lateinit var reservationService: ReservationService
 
