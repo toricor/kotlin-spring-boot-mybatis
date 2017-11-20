@@ -26,7 +26,7 @@ class UserController {
             userService.findByName(name)
 
     @PostMapping
-    @ResponseStatus( HttpStatus.CREATED )
+    @ResponseStatus(HttpStatus.CREATED)
     fun createUser(@RequestBody user: User) =
             userService.create(user)
 
