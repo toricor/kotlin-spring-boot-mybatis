@@ -10,7 +10,11 @@ interface ReservationRepository {
 
     @Select("SELECT * FROM reservation")
     fun findAll(): List<Reservation>
-
+    
+    // hogehogehoge
+    Select("SELECT * FROM reservation")
+    fun findAll(): List<Reservation>
+    
     @Select("SELECT * FROM reservation WHERE id = #{id}")
     fun findOne(@Param("id") id: Int): Reservation
 
